@@ -1,0 +1,51 @@
+﻿<Page x:Class="CP.Pages.Arhiv"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      Background="White"
+      mc:Ignorable="d" 
+      d:DesignHeight="450"
+      Title="Arhiv" Width="967">
+    <Border Padding="7">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Архив сделок компании" Foreground="DarkBlue" HorizontalAlignment="Center" Grid.ColumnSpan="5" VerticalAlignment="Center" FontSize="33" FontStyle="Italic"/>
+            <ListView x:Name="listviewCards" HorizontalAlignment="Left" Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="5">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=realt, Mode=OneWay}" Header="Риелтор" Width="120"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=nedvizh, Mode=OneWay}" Header="Недвижимость" Width="120"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=prodavec, Mode=OneWay}" Header="Продавец" Width="120"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=dat, Mode=OneWay}" Header="Дата сделки" Width="120"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=commis, Mode=OneWay}" Header="Комиссия агенства" Width="120"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=comagent, Mode=OneWay}" Header="Вознаграждение риелтора" Width="180"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=typeDeals, Mode=OneWay}" Header="Тип сделки" Width="120"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <TextBlock Text="Поиск" FontStyle="Italic" Grid.Column="3" HorizontalAlignment="Center" FontSize="15" VerticalAlignment="Top" Grid.Row="6" Margin="0,3,0,0" />
+            <TextBox x:Name="ert" Grid.Column="2" FontSize="15" HorizontalContentAlignment="Left" VerticalAlignment="Top" Grid.Row="6" Grid.ColumnSpan="3" Margin="190,28,190,0" KeyUp="Search" />
+            <TextBlock Text="Общая выручка компании составляет: " x:Name="viruhka" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="17" Width="523"/>
+
+
+
+
+        </Grid>
+    </Border>
+</Page>

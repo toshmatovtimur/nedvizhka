@@ -1,0 +1,66 @@
+﻿<Window x:Class="CP.Another.SalessMan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Icon="icon.png" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize"
+        Title="Внести данные о покупателе" Height="675" Width="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="83*"/>
+            <RowDefinition Height="83*"/>
+            <RowDefinition Height="83*"/>
+            <RowDefinition Height="83*"/>
+            <RowDefinition Height="83*"/>
+            <RowDefinition Height="83.426"/>
+            <RowDefinition Height="83*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Поиск" FontStyle="Italic" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="251,0,0,0" Width="66"/>
+        <TextBox FontSize="18" x:Name="poisk" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.ColumnSpan="3" VerticalAlignment="Center" Width="500" Height="30" KeyUp="PoissKK"/>
+        <ListView x:Name="listviewCards" Width="1150" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4" MouseDoubleClick="GetSalesDoubleClick">
+            <ListView.ToolTip>
+                <ToolTip>
+                    Выберите любого клиента двойным кликом мыши
+                </ToolTip>
+            </ListView.ToolTip>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=f, Mode=OneWay}" Header="Фамилия" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=n, Mode=OneWay}" Header="Имя" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=l, Mode=OneWay}" Header="Отчество" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=nf, Mode=OneWay}" Header="Номер телефона" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=s, Mode=OneWay}" Header="Паспорт Серия" Width="110"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=number, Mode=OneWay}" Header="Паспорт Номер" Width="110"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=dv, Mode=OneWay}" Header="Дата выдачи" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=kv, Mode=OneWay}" Header="Кем выдан" Width="300"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock Text="Вы можете выбрать клиента/покупателя из базы данных клиентов компании или добавить нового клиента: " Grid.Row="5" FontSize="18" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,6,0,0"/>
+        <TextBlock Text="Фамилия" Foreground="Brown" Grid.Row="6" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,10,0,0"/>
+        <TextBlock Text="Отчество" Foreground="Brown" Grid.Row="6" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,70,0,0" Grid.RowSpan="2"/>
+        <TextBlock Text="Номер телефона" Foreground="Brown" Grid.Row="7" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,17,0,0"/>
+        <TextBlock Text="Имя" Grid.Row="6" Foreground="Brown" FontSize="18" HorizontalAlignment="Left" Margin="47,41,0,19"/>
+        <TextBlock Text="Паспорт" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="22" FontStyle="Italic"/>
+        <TextBlock Text="Покупатель" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="22" FontStyle="Italic"/>
+        <TextBlock Text="Серия:" Foreground="Brown" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Margin="110,83,0,0" Grid.RowSpan="2"/>
+        <TextBlock Text="Номер:" Foreground="Brown" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Margin="259,83,0,0" Grid.RowSpan="2"/>
+        <TextBlock Text="Дата выдачи:" Foreground="Brown" Grid.Column="2" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Margin="102,83,0,0" Grid.RowSpan="2"/>
+        <TextBlock Text="Кем выдан:" Foreground="Brown" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Margin="108,38,0,0"/>
+        <Button Content="Добавить в базу клиента" Background="AliceBlue" Grid.Column="2" Grid.Row="7" Width="200" Height="50" FontSize="15" Grid.RowSpan="2" Click="Button_Click"/>
+        <TextBox VerticalContentAlignment="Stretch" Width="150" Height="23" FontSize="15" x:Name="first" Grid.Row="6" Margin="145,13,38,49"/>
+        <TextBox VerticalContentAlignment="Stretch" Width="150" Height="23" FontSize="15" x:Name="nam" Grid.Row="6" Margin="178,43,72,18"/>
+        <TextBox VerticalContentAlignment="Stretch" Width="150" Height="23" FontSize="15" x:Name="last" Grid.Row="6" Margin="177,75,73,73" Grid.RowSpan="2"/>
+        <TextBox VerticalContentAlignment="Stretch" Width="150" Height="23" FontSize="15" x:Name="numberfhone" Grid.Row="7" Margin="177,21,73,43"/>
+        <TextBox VerticalContentAlignment="Stretch" Grid.Column="1" FontSize="15" x:Name="seria" Grid.Row="5" Margin="172,86,150,60" Grid.RowSpan="2"/>
+        <TextBox VerticalContentAlignment="Stretch" Grid.Column="1" FontSize="15" x:Name="numb" Grid.Row="5" Margin="331,87,345,59" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <TextBox VerticalContentAlignment="Stretch" Grid.Column="2" FontSize="15" x:Name="datevidach" Grid.Row="5" Margin="220,87,33,60" Grid.RowSpan="2"/>
+        <TextBox VerticalContentAlignment="Stretch" Grid.Column="1" FontSize="15" x:Name="kemvidan" Grid.Row="6" Margin="209,41,33,18" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>

@@ -1,0 +1,98 @@
+﻿<Page x:Class="CP.Pages.Prodazha"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" Background="White"
+      d:DesignHeight="450" d:DesignWidth="1000">
+    <Border BorderBrush="Black" Padding="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="5">
+                <TextBlock Text="Тип объявления" FontSize="13" FontWeight="DemiBold" Margin="6 15 0 0"/>
+                <RadioButton GroupName="ProOrArenda" x:Name="prodazhaa" FontSize="13" Content="Продажа" Margin="6 15 12 0"/>
+                <RadioButton GroupName="ProOrArenda" x:Name="arendaa" Content="Аренда" FontSize="13" Margin="6 15 0 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="5">
+                <TextBlock Text="Тип недвижимости" FontSize="13" FontWeight="DemiBold" Margin="6 15 0 0"/>
+                <RadioButton GroupName="TypeNed" x:Name="kvartiry" Content="Квартира" FontSize="13"  Margin="6 15 12 0"/>
+                <RadioButton GroupName="TypeNed" x:Name="domDacha" Content="Дом/дача" FontSize="13" Margin="6 15 12 0"/>
+                <RadioButton GroupName="TypeNed" x:Name="kommerciya" Content="Коммерческая" FontSize="13" Margin="6 15 12 0"/>
+                <RadioButton GroupName="TypeNed" x:Name="garazh" Content="Гараж/погреб" FontSize="13" Margin="6 15 12 0" Checked="GarGo" Unchecked="GarOut"/>
+                <RadioButton GroupName="TypeNed" x:Name="zemlya" Content="Земля" FontSize="13" Margin="6 15 0 0" Checked="ZemelyaGo" Unchecked="ZemelyaUot"/>
+            </StackPanel>
+            <StackPanel x:Name="KolKom" Orientation="Horizontal" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3" Margin="62,14,47,31" RenderTransformOrigin="0.401,0.648" Grid.RowSpan="2">
+                <TextBlock Text="Количество комнат  " FontSize="13" FontWeight="DemiBold"/>
+                <CheckBox Content="1  " FontSize="13" x:Name="one"/>
+                <CheckBox Content="2  " FontSize="13" x:Name="two"/>
+                <CheckBox Content="3  " FontSize="13" x:Name="three"/>
+                <CheckBox Content="4 и более" FontSize="13" x:Name="four"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="7">
+                <TextBlock Text="Район" FontSize="13" FontWeight="DemiBold" Margin="6 15 0 0"/>
+                <RadioButton GroupName="Distrikts" x:Name="kirovskiy" Content="Кировский" FontSize="13"  Margin="6 15 12 0"/>
+                <RadioButton GroupName="Distrikts" x:Name="sovetskiy" Content="Советский" FontSize="13" Margin="6 15 12 0"/>
+                <RadioButton GroupName="Distrikts" x:Name="oktyabr" Content="Октябрьский" FontSize="13" Margin="6 15 12 0"/>
+                <RadioButton GroupName="Distrikts" x:Name="lenin" Content="Ленинский" FontSize="13" Margin="6 15 12 0"/>
+                <RadioButton GroupName="Distrikts" x:Name="seversk" Content="Северск" FontSize="13" Margin="6 15 12 0"/>
+                <RadioButton GroupName="Distrikts" x:Name="tomskiy" Content="Томский" FontSize="13" Margin="6 15 12 0"/>
+                <RadioButton GroupName="Distrikts" x:Name="asino" Content="Асиновский" FontSize="13" Margin="6 15 12 0"/>
+                <RadioButton GroupName="Distrikts" x:Name="oblast" Content="Область" FontSize="13" Margin="6 15 12 0"/>
+                <RadioButton GroupName="Distrikts" x:Name="drugoe" Content="Другое" FontSize="13" Margin="6 15 12 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="6">
+                <TextBlock Text="Цена, тыс.руб.:  " Margin="5" VerticalAlignment="Center" FontWeight="DemiBold" FontSize="13"/>
+                <TextBox x:Name="startPrice" Width="80" Height="20" KeyDown="Blask" KeyUp="Cleq"/>
+                <TextBlock Text=" --- " VerticalAlignment="Center" FontSize="13"/>
+                <TextBox x:Name="endPrice" Width="80" Height="20" KeyDown="Black" KeyUp="DFG"/>
+            </StackPanel>
+            <Button Content="Найти" Grid.Row="4" Width="120" Height="30" Grid.Column="0" Margin="11,0,10,1" Click="Button_Click_1"/>
+            <Button Content="Очистить фильтр" Width="120" Height="30" Grid.Column="1" Grid.Row="4" Margin="11,0,11,1" Click="Button_Click"/>
+            <ListBox x:Name="prodazhaList" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="7" Grid.RowSpan="9">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="5" Orientation="Vertical">
+                            <TextBlock FontSize="16" Text="{Binding Path=Name}" Foreground="Blue" FontWeight="Bold" HorizontalAlignment="Left" MouseLeftButtonUp="NameClick"/>
+                            <TextBlock FontSize="16" Text="{Binding Path=AdressReal}" HorizontalAlignment="Left" />
+                            <TextBlock FontSize="16" Text="{Binding Path=Status}" HorizontalAlignment="Left" />
+                            <WrapPanel ItemHeight="130" ItemWidth="120" x:Name="Fotki" Cursor="SizeAll" >
+                                <Image Source="{Binding Path=Image1}" Stretch="UniformToFill"/>
+                                <Image Source="{Binding Path=Image2}" Stretch="Fill"/>
+                                <Image Source="{Binding Path=Image3}" Stretch="Fill"/>
+                                <Image Source="{Binding Path=Image4}" Stretch="Fill"/>
+                                <Image Source="{Binding Path=Image5}" Stretch="Fill"/>
+                            </WrapPanel>
+                            <TextBlock FontSize="16" Text="{Binding Path=Opisan}" HorizontalAlignment="Left" />
+                            <TextBlock FontSize="16" Text="{Binding Path=Contact}" HorizontalAlignment="Right"/>
+                            <TextBlock Text="" HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Border>
+</Page>
